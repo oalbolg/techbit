@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="description"
+      content="TechBit - Your source for tech insights and tutorials"
+    />
+    <title>TechBit - Tech Blog</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100 font-sans">
+    <!-- Header -->
+    <header class="bg-gray-800 text-white p-4">
+      <div class="container mx-auto flex justify-between items-center">
+        <h1 class="text-2xl font-bold">
+          <a href="/index.html" class="hover:text-gray-300">TechBit</a>
+        </h1>
+        <nav class="space-x-4">
+          <a href="/index.html" class="hover:text-gray-300">Home</a>
+          <a href="#about" class="hover:text-gray-300">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto mt-8 px-4">
+      <!-- Blog Posts -->
+      <section id="home" class="mb-12">
+        <h2 class="text-3xl font-semibold mb-6 text-center">Latest Posts</h2>
+        <div
+          id="blogPosts"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          <!-- Blog posts will be inserted here -->
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="mb-12">
+        <h2 class="text-3xl font-semibold mb-6 text-center">About TechBit</h2>
+        <p class="text-gray-600 leading-relaxed">
+          TechBit is your go-to source for the latest in technology, offering
+          insights, tutorials, and tips for enthusiasts and professionals alike.
+        </p>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center py-4 mt-12">
+      <p>&copy; 2025 TechBit. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // Sample blog posts data with URLs
+      const blogPosts = [
+        {
+          title: "Wohnsitz ummelden in Zürich",
+          description:
+            "Ein Umzug kann eine aufregende, aber auch stressige Zeit sein. Es gibt viele Dinge zu erledigen, wie beispielsweise das Packen der Kartons, das Organisieren des Transports und das Ummelden bei verschiedenen Behörden. ",
+          date: "August 28, 2025",
+          category: "Wohnsitz ummelden",
+          url: "/wohnsitz-ummelden-in-zürich.html",
+        },
+      ];
+
+      // Function to display blog posts
+      function displayBlogs() {
+        const blogContainer = document.getElementById("blogPosts");
+        blogContainer.innerHTML = "";
+
+        blogPosts.forEach((post) => {
+          const postElement = document.createElement("div");
+          postElement.className =
+            "bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300";
+          postElement.innerHTML = `
+                    <h3 class="text-xl font-medium text-gray-900 mb-2">
+                        <a href="${post.url}" class="hover:text-blue-500 transition duration-200">${post.title}</a>
+                    </h3>
+                    <p class="text-gray-500 mb-4">${post.description}</p>
+                    <p class="text-gray-400 text-sm">Published on ${post.date} | ${post.category}</p>
+                `;
+          blogContainer.appendChild(postElement);
+        });
+      }
+
+      // Initialize blog posts on page load
+      document.addEventListener("DOMContentLoaded", displayBlogs);
+    </script>
+  </body>
+</html>
